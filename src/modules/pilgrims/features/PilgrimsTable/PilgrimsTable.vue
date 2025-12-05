@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { BaseTable, BasePagination } from '@/components/common/index'
+import { BaseTable, BasePagination } from '@/components/common'
 import { usePilgrimsTableComponent } from './PilgrimsTable.logic'
 import type { PilgrimsTableProps } from './PilgrimsTable.logic'
 

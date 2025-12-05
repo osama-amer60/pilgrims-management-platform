@@ -1,11 +1,18 @@
-import { computed, ref, type Ref } from 'vue'
+import { computed, ref, toRef, type Ref } from 'vue'
 import type { ColumnDef } from '@tanstack/vue-table'
-import type { Comment } from '../types'
+import type { Comment } from '../../types/index.ts'
+import { pilgrimsTableWrapper } from './PilgrimsTable.styles.ts'
+
+export interface PilgrimsTableProps {
+  data?: Comment[]
+  loading?: boolean
+  error?: Error | null
+}
 
 /**
- * Composable for managing pilgrims table state and pagination
+ * Composable for managing table state and pagination
  */
-export const usePilgrimsTable = (data: Ref<Comment[] | undefined>) => {
+const useTableState = (data: Ref<Comment[] | undefined>) => {
   // Pagination state
   const currentPage = ref(0)
   const pageSize = ref(10)
@@ -63,5 +70,26 @@ export const usePilgrimsTable = (data: Ref<Comment[] | undefined>) => {
     pageSize,
     totalPages,
     handlePageChange,
+  }
+}
+
+export const usePilgrimsTableComponent = (props: PilgrimsTableProps) => {
+  // Convert props.data to a ref for reactivity
+  const dataRef = toRef(() => props.data)
+
+  // Use the table state composable with reactive data
+  const { columns, paginatedData, currentPage, pageSize, totalPages } = useTableState(dataRef)
+
+  // Compute empty message based on error state
+  const emptyMessage = props.error ? 'Failed to load data' : 'No pilgrims found'
+
+  return {
+    columns,
+    paginatedData,
+    currentPage,
+    pageSize,
+    totalPages,
+    emptyMessage,
+    pilgrimsTableWrapper,
   }
 }

@@ -15,7 +15,7 @@
       <input
         v-bind="$attrs"
         :type="props.type"
-        class="w-full bg-transparent outline-none px-3 py-2.5 text-gray-700 placeholder-gray-400"
+        class="w-full bg-transparent outline-none px-3 py-2 text-gray-700 placeholder-gray-400"
         v-model="model"
       />
 
