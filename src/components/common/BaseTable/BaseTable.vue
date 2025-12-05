@@ -25,17 +25,14 @@
             :class="tableHeaderCell"
             :style="{ width: header.getSize() !== 150 ? `${header.getSize()}px` : 'auto' }"
           >
-            <div
-              v-if="!header.isPlaceholder"
-            >
+            <div v-if="!header.isPlaceholder">
               <template v-if="typeof header.column.columnDef.header === 'function'">
-                <template v-if="typeof header.column.columnDef.header(header.getContext()) === 'string'">
+                <template
+                  v-if="typeof header.column.columnDef.header(header.getContext()) === 'string'"
+                >
                   {{ header.column.columnDef.header(header.getContext()) }}
                 </template>
-                <component
-                  v-else
-                  :is="header.column.columnDef.header(header.getContext())"
-                />
+                <component v-else :is="header.column.columnDef.header(header.getContext())" />
               </template>
               <template v-else>
                 {{ header.column.columnDef.header }}

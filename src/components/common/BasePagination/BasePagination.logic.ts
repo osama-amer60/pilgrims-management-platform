@@ -22,10 +22,7 @@ export interface BasePaginationEmits {
   (e: 'update:pageSize', value: number): void
 }
 
-export const useBasePagination = (
-  props: BasePaginationProps,
-  emit: BasePaginationEmits,
-) => {
+export const useBasePagination = (props: BasePaginationProps, emit: BasePaginationEmits) => {
   const startItem = computed(() => {
     return props.currentPage * props.pageSize + 1
   })
@@ -94,7 +91,6 @@ export const useBasePagination = (
       emit('update:currentPage', props.currentPage + 1)
     }
   }
-
 
   const getPageButtonClass = (page: number | string) => {
     if (typeof page === 'string') {

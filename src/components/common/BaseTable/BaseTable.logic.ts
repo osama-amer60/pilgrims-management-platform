@@ -42,9 +42,7 @@ export const useBaseTable = <TData>(props: BaseTableProps<TData>) => {
 
     onColumnFiltersChange: (updaterOrValue) => {
       columnFilters.value =
-        typeof updaterOrValue === 'function'
-          ? updaterOrValue(columnFilters.value)
-          : updaterOrValue
+        typeof updaterOrValue === 'function' ? updaterOrValue(columnFilters.value) : updaterOrValue
     },
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),

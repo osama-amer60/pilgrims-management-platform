@@ -3,11 +3,7 @@
     <!-- Pagination Controls -->
     <div :class="paginationControls">
       <!-- Previous Button -->
-      <button
-        :class="paginationButton"
-        :disabled="!canGoPrevious"
-        @click="goToPrevious"
-      >
+      <button :class="paginationButton" :disabled="!canGoPrevious" @click="goToPrevious">
         <i class="bi bi-chevron-right"></i>
         <span>Prev</span>
       </button>
@@ -24,11 +20,7 @@
       </button>
 
       <!-- Next Button -->
-      <button
-        :class="paginationButton"
-        :disabled="!canGoNext"
-        @click="goToNext"
-      >
+      <button :class="paginationButton" :disabled="!canGoNext" @click="goToNext">
         <span>Next</span>
         <i class="bi bi-chevron-left"></i>
       </button>
@@ -38,7 +30,6 @@
     <div :class="paginationInfo">
       <span>Display {{ startItem }} to {{ endItem }} of {{ props.totalItems }}</span>
     </div>
-
   </div>
 </template>
 
