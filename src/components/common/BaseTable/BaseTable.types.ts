@@ -10,6 +10,7 @@ export interface BaseTableProps<TData> {
 }
 
 export interface TableState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columnFilters: any[]
   pagination: {
     pageIndex: number
