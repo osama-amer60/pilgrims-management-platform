@@ -9,9 +9,9 @@
     <!-- Navigation -->
     <nav class="flex-1 space-y-1">
       <SidebarLink icon="fi-rr-dashboard" label="Dashboard" to="/" />
-      <SidebarLink icon="fi-rr-users" label="Pilgrims" to="/" />
-      <SidebarLink icon="fi-rr-building" label="Projects" to="/" />
-      <SidebarLink icon="fi-rr-settings" label="Settings" to="/" />
+      <SidebarLink icon="fi-rr-users" label="Pilgrims" to="/pilgrims" />
+      <SidebarLink icon="fi-rr-building" label="Projects" to="/projects" />
+      <SidebarLink icon="fi-rr-settings" label="Settings" to="/settings" />
     </nav>
 
     <!-- Footer -->
