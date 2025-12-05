@@ -16,6 +16,7 @@
         v-bind="$attrs"
         :type="props.type"
         class="w-full bg-transparent outline-none px-3 py-2 text-gray-700 placeholder-gray-400"
+        :class="props.inputStyle"
         v-model="model"
       />
 
@@ -35,11 +36,13 @@ const props = withDefaults(
     label?: string
     type?: string
     modelValue?: string | number
+    inputStyle?: string
   }>(),
   {
     type: 'text',
     modelValue: '',
     label: '',
+    inputStyle: '',
   },
 )
 

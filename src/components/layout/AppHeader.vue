@@ -1,8 +1,8 @@
 <template>
   <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6">
     <!-- Left: Page title placeholder -->
-    <div class="text-lg font-semibold text-gray-700">
-      <slot name="title">Dashboard</slot>
+    <div>
+      <BaseInput placeholder="Search" />
     </div>
 
     <!-- Right: User menu -->
@@ -20,4 +20,6 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { BaseInput } from '../common'
+</script>
