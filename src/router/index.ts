@@ -1,14 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import { pilgrimsRoutes } from '@/modules/pilgrims/routes'
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: () => import('@/App.vue'),
-    },
-  ],
+  routes: [...pilgrimsRoutes],
 })
-
 export default router

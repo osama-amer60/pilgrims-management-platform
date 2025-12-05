@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { HeaderBar, PilgrimsTable, StatisticCards, TableBar } from '../features/index'
-import { usePilgrimsView } from './PilgrimsView.logic'
+import { usePilgrims } from '../composables'
 
-const { data, isLoading, error } = usePilgrimsView()
+const { data, isLoading, error } = usePilgrims()
 </script>

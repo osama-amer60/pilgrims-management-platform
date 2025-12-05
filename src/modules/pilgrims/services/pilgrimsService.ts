@@ -1,11 +1,25 @@
-import { API_CONFIG, API_ENDPOINTS } from '@/config/api.config'
+import { apiClient } from '@/api/client'
+import { API_ENDPOINTS } from '@/config/api.config'
 import type { Comment } from '../types/pilgrim.types'
 
-// Fetch comments from API
-export const fetchComments = async (): Promise<Comment[]> => {
-  const response = await fetch(`${API_CONFIG.JSON_PLACEHOLDER_BASE_URL}${API_ENDPOINTS.COMMENTS}`)
-  if (!response.ok) {
-    throw new Error('Failed to fetch comments')
-  }
-  return response.json()
+export const pilgrimsService = {
+  getAll: async (): Promise<Comment[]> => {
+    return apiClient.get(API_ENDPOINTS.COMMENTS)
+  },
+
+  getById: async (id: number): Promise<Comment> => {
+    return apiClient.get(`${API_ENDPOINTS.USERS}/${id}`)
+  },
+
+  create: async (data: Partial<Comment>): Promise<Comment> => {
+    return apiClient.post(API_ENDPOINTS.USERS, data)
+  },
+
+  update: async (id: number, data: Partial<Comment>): Promise<Comment> => {
+    return apiClient.put(`${API_ENDPOINTS.USERS}/${id}`, data)
+  },
+
+  delete: async (id: number): Promise<void> => {
+    return apiClient.delete(`${API_ENDPOINTS.USERS}/${id}`)
+  },
 }

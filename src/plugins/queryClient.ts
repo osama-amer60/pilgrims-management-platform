@@ -1,7 +1,6 @@
 import { VueQueryPlugin, QueryClient } from '@tanstack/vue-query'
 import type { App } from 'vue'
 
-// Create a query client with default options
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -12,7 +11,6 @@ const queryClient = new QueryClient({
   },
 })
 
-// Export plugin installation function
 export function installVueQuery(app: App) {
   app.use(VueQueryPlugin, {
     queryClient,
